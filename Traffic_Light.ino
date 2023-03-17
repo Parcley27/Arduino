@@ -9,10 +9,7 @@ void setup() {
   	pinMode(red, OUTPUT);
   	pinMode(yellow, OUTPUT);
   	pinMode(green, OUTPUT);
-
-  	//set button pin to input
-  	pinMode(button, INPUT);
- 
+	
 }
 
 void loop() {
