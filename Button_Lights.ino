@@ -1,4 +1,4 @@
-//set vars to led pin outs
+//set vars to led pinouts
 const int red = 2;
 const int yellow = 3;
 const int green = 4;
@@ -19,9 +19,10 @@ void setup() {
   pinMode(button, INPUT);
   
 }
+
 void loop() {
   
-  //if button not pressed?
+  //if button NOT pressed?
   if (digitalRead(button) == LOW) {
 
     //turn on all LEDs
@@ -30,7 +31,7 @@ void loop() {
     digitalWrite(green, LOW);
     digitalWrite(white, LOW);
     
-  //if button is pressed?
+  //if button IS pressed?
   } else if (digitalRead(button) == HIGH) {
 
     //turn off all LEDs
