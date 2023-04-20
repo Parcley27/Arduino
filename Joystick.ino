@@ -1,16 +1,15 @@
-const int joystickX = A1;
-const int joystickY = A2;
+//Declare variables for analog joystick input
+const int joystickX = A0;
+const int joystickY = A1;
 
+//Declare light variables
 const int down = 2;
-const int right = 3;
-const int left = 4;
-const int up = 5;
-
-const int joystickButton = 8;
+const int up = 3;
+const int right = 4;
+const int left = 5;
 
 void setup() {
-  pinMode(joystickButton, INPUT);
-
+  //set light pinmodes
   pinMode(down, OUTPUT);
   pinMode(right, OUTPUT);
   pinMode(left, OUTPUT);
@@ -20,27 +19,30 @@ void setup() {
 
 void loop() {
 
+  //turn off all lights
   digitalWrite(down, LOW);
   digitalWrite(right, LOW);
   digitalWrite(left, LOW);
   digitalWrite(up, LOW);
 
-  if (513 < analogRead(joystickX)) {
-    digitalWrite(right, HIGH);
-  } else if (511 > analogRead(joystickX)) {
+  //tolerance is 64 both ways from middle
+  //total of %12.5 leway each for x and y
+
+  //if joystickX is more than z amount, turn on left LED
+  if (analogRead(joystickX) > 576) {
     digitalWrite(left, HIGH);
+
+  //if not, turn on right LED
+  } else if (analogRead(joystickX) < 448) {
+    digitalWrite(right, HIGH);
   }
 
-  if (513 < analogRead(joystickY)) {
+  //if joystickY is more than z amount, turn on up LED
+  if (analogRead(joystickY) > 576) {
     digitalWrite(up, HIGH);
-  } else if (511 > analogRead(joystickY)) {
+  
+  //if not, turn on down LED
+  } else if (analogRead(joystickY) < 448) {
     digitalWrite(down, HIGH);
   }
-
-  if (digitalRead(joystickButton) == HIGH) {
-    digitalWrite(down, HIGH);
-    digitalWrite(right, HIGH);
-    digitalWrite(left, HIGH);
-    digitalWrite(up, HIGH);
-  }  
 }
