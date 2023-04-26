@@ -1,7 +1,7 @@
-//include LiquidCrtstal Library
+//include LiquidCrystal library
 #include <LiquidCrystal.h>
 
-//declare x and y position analog pins
+//declare constant x and y position analog pins
 const int xPosition = A0;
 const int yPosition = A1;
 
