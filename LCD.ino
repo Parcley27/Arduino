@@ -36,8 +36,9 @@ void setup() {
 void loop() {
   //remap xPosition and yPosition values from 0 ... 1023 to -100 ... 100
   //easier for people to understand -100 to 100 than 0 to 1023
-  mappedX = map(analogRead(xPosition), 0, 1023, 100, -100);
-  mappedY = map(analogRead(yPosition), 0, 1023, -100, 100);
+  mappedX = map(analogRead(xPosition), 0, 1023, -100, 100);
+  //mappedY must be mapped backwards because this way it makes sence when displayed
+  mappedY = map(analogRead(yPosition), 0, 1023, 100, -100);
 
   //if mappedX is greater than or equal to 0
   if (mappedX >= 0) {
