@@ -9,7 +9,6 @@ const int yPosition = A1;
 int mappedX = 0;
 int mappedY = 0;
 
-
 //declare lcd connection pins
 //you can declare more than one varibale at a time of the same type
 //easier/faster to do it with this bc all variables are just used by lcd library
@@ -30,7 +29,6 @@ void setup() {
   //print "yPosition:" to screen
   lcd.setCursor(0, 1);
   lcd.print("yPosition:");
-
 }
 
 void loop() {
@@ -74,5 +72,4 @@ void loop() {
     lcd.print(mappedY);
     lcd.print("  ");
   }
-
 }
