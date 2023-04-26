@@ -39,7 +39,7 @@ void loop() {
   mappedY = map(analogRead(yPosition), 0, 1023, 100, -100);
 
   //if mappedX is greater than or equal to 0
-  if (mappedX >= 0) {
+  if (mappedX > 10) {
     //set cursor to after "xPosition:" printed earlier
     lcd.setCursor(11, 0);
     //print "+" to show it's positive
@@ -48,28 +48,34 @@ void loop() {
     lcd.print(mappedX);
     //print whitespace after to clear unwanted numbers
     //ex: 8 has less characters than 100, so two white spaces are needed to get rid of the 0s
-    lcd.print("  ");
+    lcd.print(" ");
 
   //if  mappedX is not greater than or equal to 0
-  } else {
+  } else if (mappedX < -10) {
     //position cursor
     lcd.setCursor(11, 0);
     //print mappedX
     //doesn't need a "+" because it's negative
     lcd.print(mappedX);
     //clear unwanted characters with white spaces
-    lcd.print("  ");
+    lcd.print(" ");
+  } else {
+    lcd.setCursor(11, 0);
+    lcd.print("Dead");
   }
 
   //do the same, but with mappedY instead of mappedX
-  if (mappedY >= 0) {
+  if (mappedY > 10) {
     lcd.setCursor(11, 1);
     lcd.print("+");
     lcd.print(mappedY);
     lcd.print("  ");
-  } else {
+  } else if (mappedY < -10) {
     lcd.setCursor(11, 1);
     lcd.print(mappedY);
     lcd.print("  ");
+  } else {
+    lcd.setCursor(11, 1);
+    lcd.print("Dead");
   }
 }
