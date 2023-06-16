@@ -26,7 +26,7 @@ void setup() {
 void loop() {  
   delay(100);
   timeSinceStart = millis()
-  // dev by 1000 but keep as float
+  // dev by 1000 but keep as int
   timeSinceStart = timeSinceStart / 1000
   lcd.setCursor(1, 0);
   lcd.print(timeSinceStart);
