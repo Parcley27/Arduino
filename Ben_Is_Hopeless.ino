@@ -19,15 +19,15 @@ void setup() {
   lcd.print("Time since start:");
   
   lcd.setCursor(1, 0);
-  lcd.print(0)
+  lcd.print(0);
   
 }
 
 void loop() {  
   delay(100);
-  timeSinceStart = millis()
+  int timeSinceStart = millis();
   // dev by 1000 but keep as int
-  timeSinceStart = timeSinceStart / 1000
+  timeSinceStart = timeSinceStart / 1000;
   lcd.setCursor(1, 0);
   lcd.print(timeSinceStart);
     
