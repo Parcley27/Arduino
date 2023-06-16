@@ -28,7 +28,7 @@ void loop() {
   int timeSinceStart = millis();
   // dev by 1000 but keep as int
   timeSinceStart = timeSinceStart / 1000;
-  lcd.setCursor(1, 0);
+  lcd.setCursor(0, 1);
   lcd.print(timeSinceStart);
     
 }
